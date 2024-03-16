@@ -50,6 +50,7 @@ class GreedyFrontier(StackFrontier):
             raise Exception("empty frontier")
         else:
             node = min(self.frontier, key=lambda x: x.manhattan)
+            # Remove that node from the frontier (this remove is a method for lists, different than the one we define for this class!)
             self.frontier.remove(node)
             return node
         
@@ -61,6 +62,7 @@ class StarFrontier(StackFrontier):
             raise Exception("empty frontier")
         else:
             node = min(self.frontier, key=lambda x: (x.manhattan + x.movements))
+            # Remove that node from the frontier (this remove is a method for lists, different than the one we define for this class!)
             self.frontier.remove(node)
             return node
 
